@@ -35,13 +35,13 @@ WHERE location = 'Sweden'
 ORDER BY 1,2
 
 --total cases VS population in Belarus
-SELECT location, date, total_cases, population, (total_cases / population)*100 AS contraction_percentage_bel
+SELECT location, date, total_cases, population, (total_cases / population)*100 AS infected_percentage_bel
 FROM [PortfolioProject].dbo.CovidDeaths
 WHERE location = 'Belarus'
 ORDER BY 1,2
 
 --total cases VS population in Sweden
-SELECT location, date, total_cases, population, (total_cases / population)*100 AS contraction_percentage_bel
+SELECT location, date, total_cases, population, (total_cases / population)*100 AS infected_percentage_bel
 FROM [PortfolioProject].dbo.CovidDeaths
 WHERE location = 'Sweden'
 ORDER BY 1,2
@@ -60,11 +60,11 @@ ORDER BY 1,2
 
 
 -- countries with highest infection rates
-SELECT location, population, MAX(total_cases) AS highest_inf_count, MAX((total_cases / population))*100 AS contraction_percentage
+SELECT location, population, MAX(total_cases) AS highest_inf_count, MAX((total_cases / population))*100 AS infected_percentage
 FROM [PortfolioProject].dbo.CovidDeaths
 WHERE continent IS NOT NULL
 GROUP BY location, population
-ORDER BY contraction_percentage DESC
+ORDER BY infected_percentage DESC
 
 
 -- countries with highest death count
